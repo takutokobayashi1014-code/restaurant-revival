@@ -65,15 +65,47 @@ document.querySelectorAll("[data-inquiry-type]").forEach((link) => {
 const contactForm = document.querySelector(".contact-form");
 if (contactForm) {
   const submitButton = contactForm.querySelector(".submit-button");
-  contactForm.addEventListener("submit", (event) => {
+  const formSuccess = document.querySelector("#form-success");
+  const formError = document.querySelector("#form-error");
+  const defaultButtonContent = submitButton ? submitButton.innerHTML : "";
+
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
     if (!contactForm.checkValidity()) {
-      event.preventDefault();
       contactForm.reportValidity();
       return;
     }
+
+    if (formSuccess) formSuccess.hidden = true;
+    if (formError) formError.hidden = true;
     if (submitButton) {
       submitButton.disabled = true;
       submitButton.textContent = "送信しています…";
+    }
+
+    try {
+      await fetch(contactForm.action, {
+        method: "POST",
+        body: new FormData(contactForm),
+        mode: "no-cors"
+      });
+      contactForm.reset();
+      if (formSuccess) {
+        formSuccess.hidden = false;
+        formSuccess.focus();
+        formSuccess.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    } catch {
+      if (formError) {
+        formError.hidden = false;
+        formError.focus();
+        formError.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.innerHTML = defaultButtonContent;
+      }
     }
   });
 }
