@@ -198,6 +198,10 @@ img{display:block;max-width:100%}
 .contact-heading>p:last-child{color:rgba(255,255,255,.68)}
 .contact-layout{max-width:1120px;margin:auto;display:grid;grid-template-columns:1.3fr .7fr;gap:22px;align-items:start}
 .contact-form-wrap{background:var(--paper);color:var(--text);padding:36px;box-shadow:var(--shadow)}
+.form-intro{margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.form-intro>span{display:inline-block;padding:3px 9px;background:var(--green-light);color:var(--green);font-size:9px;font-weight:900}
+.form-intro h3{margin:7px 0 4px;color:var(--ink);font-size:19px}
+.form-intro p{margin:0;color:var(--muted);font-size:11px}
 .contact-form{display:grid;gap:18px}
 .form-columns{display:grid;grid-template-columns:1fr 1fr;gap:15px}
 .contact-form label{display:grid;gap:7px;color:var(--ink);font-size:12px;font-weight:800}
@@ -209,12 +213,17 @@ img{display:block;max-width:100%}
 .contact-form .consent{display:flex;grid-template-columns:20px 1fr;align-items:flex-start;gap:8px;color:var(--muted);font-size:10px;font-weight:500}
 .consent input{width:17px;height:17px;margin:4px 0 0}
 .consent span{color:var(--muted)!important;font-size:10px!important}
-.honey{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;opacity:0!important}
 .submit-button{border:0}
 .form-note{margin:-7px 0 0;text-align:center;color:var(--muted);font-size:9px}
-.form-success{margin-bottom:20px;padding:18px;background:var(--green-light);border-left:4px solid var(--green);color:var(--ink)}
-.form-success strong{font-size:15px}
-.form-success p{margin:3px 0 0;color:var(--muted);font-size:11px}
+.mail-fallback{margin-top:22px;padding:20px;background:var(--green-light);border-left:4px solid var(--green);color:var(--ink)}
+.mail-fallback>strong{font-size:15px}
+.mail-fallback>p{margin:4px 0 14px;color:var(--muted);font-size:10px}
+.fallback-actions{display:flex;gap:9px;flex-wrap:wrap}
+.fallback-actions .button{min-width:0;padding:10px 14px;font-size:10px}
+.copy-inquiry{padding:10px 14px;border:1px solid var(--green);background:var(--green);color:#fff;font-size:10px;font-weight:800;cursor:pointer}
+.copy-inquiry:hover{filter:brightness(1.05)}
+.mail-fallback .fallback-address{margin:11px 0 0;word-break:break-all}
+.noscript-note{padding:14px;background:#fff1d4;color:var(--ink);font-size:11px}
 .contact-options{display:grid;gap:16px}
 .contact-option,.response-note{padding:26px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13)}
 .contact-option h3{margin:0 0 6px;font-size:19px}

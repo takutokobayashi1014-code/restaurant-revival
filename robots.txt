@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://takutokobayashi1014-code.github.io/restaurant-revival/sitemap.xml
