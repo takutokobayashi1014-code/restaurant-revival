@@ -64,63 +64,35 @@ document.querySelectorAll("[data-inquiry-type]").forEach((link) => {
 
 const contactForm = document.querySelector(".contact-form");
 if (contactForm) {
-  const mailFallback = document.querySelector("#mail-fallback");
-  const mailLink = document.querySelector("#mail-link");
-  const copyInquiry = document.querySelector("#copy-inquiry");
-  let inquiryText = "";
-
+  const submitButton = contactForm.querySelector(".submit-button");
   contactForm.addEventListener("submit", (event) => {
-    event.preventDefault();
     if (!contactForm.checkValidity()) {
+      event.preventDefault();
       contactForm.reportValidity();
       return;
     }
-
-    const formData = new FormData(contactForm);
-    const getValue = (name) => String(formData.get(name) || "未入力").trim();
-    const type = getValue("ご相談内容");
-    const name = getValue("お名前");
-    const store = getValue("店舗名");
-    const email = getValue("email");
-    const phone = getValue("電話番号");
-    const currentUrl = getValue("現在のURL");
-    const message = getValue("お悩み・ご希望");
-
-    const subject = `【Restaurant Revival】${type}｜${store}`;
-    inquiryText = [
-      "Restaurant Revivalへのお問い合わせ",
-      "",
-      `【ご相談内容】${type}`,
-      `【お名前】${name}`,
-      `【店舗名】${store}`,
-      `【メールアドレス】${email}`,
-      `【電話番号】${phone}`,
-      `【現在のホームページ・掲載ページ】${currentUrl}`,
-      "",
-      "【お悩み・ご希望】",
-      message
-    ].join("\n");
-
-    const mailto = `mailto:takuto.kobayashi1014@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(inquiryText)}`;
-    if (mailLink) mailLink.href = mailto;
-    if (mailFallback) {
-      mailFallback.hidden = false;
-      mailFallback.focus();
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "送信しています…";
     }
-    window.location.href = mailto;
   });
+}
 
-  if (copyInquiry) {
-    copyInquiry.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(inquiryText);
-        copyInquiry.textContent = "コピーしました";
-      } catch {
-        copyInquiry.textContent = "コピーできませんでした";
-      }
-      window.setTimeout(() => {
-        copyInquiry.textContent = "問い合わせ内容をコピー";
-      }, 2500);
-    });
-  }
+const params = new URLSearchParams(window.location.search);
+const formSuccess = document.querySelector("#form-success");
+const formError = document.querySelector("#form-error");
+if (params.get("sent") === "1" && formSuccess) {
+  formSuccess.hidden = false;
+  formSuccess.focus();
+}
+if (params.get("send") === "error" && formError) {
+  formError.hidden = false;
+  formError.focus();
+}
+if (params.has("sent") || params.has("send")) {
+  params.delete("sent");
+  params.delete("send");
+  const cleanQuery = params.toString();
+  const cleanUrl = `${window.location.pathname}${cleanQuery ? `?${cleanQuery}` : ""}${window.location.hash}`;
+  window.history.replaceState({}, "", cleanUrl);
 }

@@ -214,15 +214,14 @@ img{display:block;max-width:100%}
 .consent input{width:17px;height:17px;margin:4px 0 0}
 .consent span{color:var(--muted)!important;font-size:10px!important}
 .submit-button{border:0}
+.submit-button:disabled{cursor:wait;opacity:.72;transform:none}
 .form-note{margin:-7px 0 0;text-align:center;color:var(--muted);font-size:9px}
-.mail-fallback{margin-top:22px;padding:20px;background:var(--green-light);border-left:4px solid var(--green);color:var(--ink)}
-.mail-fallback>strong{font-size:15px}
-.mail-fallback>p{margin:4px 0 14px;color:var(--muted);font-size:10px}
-.fallback-actions{display:flex;gap:9px;flex-wrap:wrap}
-.fallback-actions .button{min-width:0;padding:10px 14px;font-size:10px}
-.copy-inquiry{padding:10px 14px;border:1px solid var(--green);background:var(--green);color:#fff;font-size:10px;font-weight:800;cursor:pointer}
-.copy-inquiry:hover{filter:brightness(1.05)}
-.mail-fallback .fallback-address{margin:11px 0 0;word-break:break-all}
+.form-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+.form-status{margin:0 0 22px;padding:18px 20px;border-left:4px solid;color:var(--ink)}
+.form-status strong{font-size:15px}
+.form-status p{margin:4px 0 0;color:var(--muted);font-size:10px}
+.form-status-success{background:var(--green-light);border-color:var(--green)}
+.form-status-error{background:#fff0ec;border-color:var(--error)}
 .noscript-note{padding:14px;background:#fff1d4;color:var(--ink);font-size:11px}
 .contact-options{display:grid;gap:16px}
 .contact-option,.response-note{padding:26px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13)}
