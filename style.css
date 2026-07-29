@@ -130,6 +130,9 @@ img{display:block;max-width:100%}
 .reason-sign span,.reason-sign strong{display:block}
 .reason-sign span{color:var(--gold);font-size:9px;letter-spacing:.16em}
 .reason-sign strong{margin-top:3px;font-family:"Playfair Display",serif;font-size:23px}
+.reason-sign small{display:block;margin-top:3px;color:rgba(255,255,255,.62);font-size:11px}
+.reason-sign a{display:inline-block;margin-top:12px;color:var(--gold-light);font-size:11px;font-weight:800}
+.reason-sign a:hover{text-decoration:underline}
 .reason-list>div{display:grid;grid-template-columns:48px 1fr;gap:17px;padding:24px 0;border-bottom:1px solid rgba(255,255,255,.13)}
 .reason-list span{color:var(--gold);font-family:"Playfair Display",serif;font-size:23px}
 .reason-list p{margin:0;color:rgba(255,255,255,.67);font-size:13px}
@@ -143,6 +146,27 @@ img{display:block;max-width:100%}
 .service-card:hover{border-color:rgba(212,174,103,.55);transform:translateY(-3px)}
 .service-card h3{color:#fff;font-size:22px}
 .service-card p{color:rgba(255,255,255,.66)}
+
+.examples{background:#f7f1e6}
+.example-grid{max-width:1120px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.example-card{padding:17px 17px 27px;background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow-small)}
+.browser-mock{position:relative;min-height:360px;padding:56px 42px 36px;overflow:hidden;display:flex;align-items:flex-end}
+.browser-mock::after{content:"";position:absolute;inset:34px 0 0;background:linear-gradient(90deg,rgba(10,20,15,.84),rgba(10,20,15,.2));z-index:0}
+.browser-bar{position:absolute;z-index:2;inset:0 0 auto;height:34px;display:flex;align-items:center;gap:6px;padding:0 12px;background:#eee8dc}
+.browser-bar i{width:7px;height:7px;border-radius:50%;background:#c8754d}
+.browser-bar i:nth-child(2){background:#d4ae67}
+.browser-bar i:nth-child(3){background:#6f927e}
+.izakaya-mock{background:url("https://images.unsplash.com/photo-1516211697506-8360dbcfe9a4?auto=format&fit=crop&w=1100&q=82") center/cover}
+.bar-mock{background:url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1100&q=82") center/cover}
+.bar-mock::after{background:linear-gradient(90deg,rgba(91,41,16,.78),rgba(218,110,45,.18))}
+.mock-copy{position:relative;z-index:1;max-width:330px;color:#fff}
+.mock-copy span{display:block;color:#f5ce86;font-size:9px;font-weight:900;letter-spacing:.2em}
+.mock-copy strong{display:block;margin:8px 0 20px;font-family:"Playfair Display","Noto Sans JP",serif;font-size:31px;line-height:1.45}
+.mock-copy b{display:inline-block;padding:9px 16px;background:#d77b38;color:#fff;font-size:10px}
+.example-type{margin:19px 0 2px;color:#c26d2f;font-size:9px;font-weight:900;letter-spacing:.19em}
+.example-card h3{margin:0 0 6px;color:var(--ink);font-size:21px}
+.example-card>p:last-child{margin:0;color:var(--muted);font-size:12px}
+.example-note{max-width:1120px;margin:16px auto 0;text-align:right;color:var(--muted);font-size:10px}
 
 .outcome{background:var(--paper)}
 .case-panel{max-width:1060px;margin:auto;display:grid;grid-template-columns:1fr 74px 1fr;align-items:stretch}
@@ -176,6 +200,12 @@ img{display:block;max-width:100%}
 .text-link{color:var(--green);font-size:13px;font-weight:900;white-space:nowrap}
 .text-link:hover{text-decoration:underline}
 .price-note{max-width:900px;margin:21px auto 0;text-align:center;color:var(--muted);font-size:10px}
+.plan-facts{max-width:810px;margin:26px auto 0;display:grid;grid-template-columns:repeat(3,1fr);background:var(--ink);color:#fff}
+.plan-facts p{margin:0;padding:18px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.14)}
+.plan-facts p:last-child{border:0}
+.plan-facts span,.plan-facts strong{display:block}
+.plan-facts span{color:var(--gold);font-size:9px;font-weight:800}
+.plan-facts strong{font-size:14px}
 
 .flow{background:var(--paper)}
 .flow-list{max-width:880px;margin:auto;padding:0;list-style:none}
@@ -389,6 +419,10 @@ footer{padding:53px 7% 76px;text-align:center;background:#06160f;color:rgba(255,
   .diagnosis h2 br,.reason h2 br{display:none}
   .diagnosis-panel{padding:27px 23px}
   .problem-grid,.service-grid{grid-template-columns:1fr}
+  .example-grid{grid-template-columns:1fr}
+  .browser-mock{min-height:310px;padding:53px 25px 28px}
+  .mock-copy strong{font-size:26px}
+  .example-note{text-align:left}
   .problem-card,.service-card{padding:29px 23px}
   .case-panel{grid-template-columns:1fr}
   .case-side{padding:30px 23px}
@@ -396,6 +430,8 @@ footer{padding:53px 7% 76px;text-align:center;background:#06160f;color:rgba(255,
   .price-card{padding:32px 23px}
   .amount strong{font-size:37px}
   .price-more{align-items:flex-start;flex-direction:column;gap:8px;padding:18px 20px}
+  .plan-facts{grid-template-columns:1fr}
+  .plan-facts p{border-right:0;border-bottom:1px solid rgba(255,255,255,.14)}
   .flow-list li{grid-template-columns:51px 1fr;gap:14px}
   .flow-list li>span{width:43px;height:43px}
   .faq summary,.plan-faq .faq-list summary{padding:20px 50px 20px 19px}
